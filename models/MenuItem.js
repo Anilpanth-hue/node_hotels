@@ -19,8 +19,8 @@ const menuItemScheme = new mongoose.Schema({
       default: false,  
     },
     ingredients: {
-        type: String,
-        default: []
+        type: [String],
+        default: [],
     },
     num_sales: {
         type: Number,
@@ -31,3 +31,17 @@ const menuItemScheme = new mongoose.Schema({
 const MenuItem = mongoose.model('MenuItem', menuItemScheme);
 
 module.exports = MenuItem;
+
+
+// {
+//     "name": "Spice Soya wings",
+//     "price": 19.99,
+//     "taste": "spciy",
+//     "is_drink": false,
+//     "ingredients": [
+//         "soya wings",
+//         "spices",
+//         "sauce"
+//     ],
+//     "num_sales": 62
+// }
