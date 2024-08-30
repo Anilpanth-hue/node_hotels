@@ -1,7 +1,12 @@
-const express = require('express')
+const express = require('express');
 const app = express();
 const db = require('./db');
 require('dotenv').config();
+const http = require('http');
+const server = http.createServer(app);
+
+server.keepAliveTimeout = 120000; // 120 seconds
+server.headersTimeout = 120000; // 120 seconds
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -28,10 +33,10 @@ app.use('/MenuItem', menuRoutes);
 
 
 // Most important for hosting 3000 server 
-app.listen(PORT, ()=>{
+server.listen(PORT, '0.0.0.0', ()=>{
     console.log('listning on port 3000');
     
-})
+});
 
 
  
